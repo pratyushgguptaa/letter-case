@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style type="text/css">
+
       body {
         background-image: url(bg.jpg);
         background-repeat: no-repeat;
@@ -22,12 +23,13 @@
         cursor: pointer;
         user-select: none;
         display: block;
+        
         background: url(text.jpg) repeat-y;
         -webkit-background-clip: text;
         background-clip: text;
 
         -webkit-text-fill-color: transparent;
-        animation: anim 10s linear infinite;
+        animation: anim 50s linear infinite;
 
         -webkit-transform: translate3d(0,0,0);
         -webkit-backface-visibility: hidden;
@@ -47,20 +49,43 @@
         width: 60%;
       }
       label{
+        color: snow;
         font-size: 2vw;
         font-weight: 600;
-        text-shadow: 0 0 5px snow;
+        text-shadow: 1px 1px 4px red;
         margin: 0 0 30px 0;
       }
       #in{
+        padding-left: 10px;
+        outline: none;
         border-radius: 10px;
         width: 100%;
-        height: 50px;
-        font-size: 130%;
+        height: 4vw;
+        font-size: 2vw;
         animation: in 4s infinite;
       }
       @keyframes in{
         50%{box-shadow: 5px 5px 20px dodgerblue,-4px -4px 30px blue;}
+      }
+
+      @media screen and (max-width: 600px) {
+        label {
+          display: none;
+        }
+        h1{
+          font-size: 10vw;
+        }
+        #in{height: 6vw;font-size: 3.8vw;}
+      }
+      @media screen and (max-width: 500px) {
+        h1{
+          font-size: 12vw;
+        }
+        
+      }
+      @media screen and (max-width: 400px) {
+        #box{width: 70%;margin-left: 15%;}
+        #in{height: 8vw;font-size: 3.8vw;}
       }
     </style>
 
@@ -75,7 +100,7 @@
 
         <form>
           <label for="text">Just enter the text and it will be capitalized!</label><br>
-          <input type="text" name="text" id="in" autofocus onkeyup="upper()">
+          <input type="text" name="text" id="in" autofocus onkeyup="upper()" placeholder="eNtEr here tO CaPitALiZe!">
         </form>
       </div>
 
@@ -83,7 +108,7 @@
     </div>
 
 
-    <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@amadorloureiroblanco?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Amador Loureiro"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Amador Loureiro</span></a>
+    
     
 
     <!-- Optional JavaScript -->
