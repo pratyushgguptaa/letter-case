@@ -4,100 +4,209 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style type="text/css">
-      body {
-        background-image: url(bg.jpg);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
+      
+      img{
+        position: absolute;
+        z-index: -2;
+        top:0; 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
-      h1{
-        font-size: 6vw;
+      #uc{
+        left: 0;
+        top: 10%;
+        width: 100%;
         text-align: center;
-        margin: 150px 0 30px 0;
+      }
+
+      #lc{
+        top: 30%;
+        left: 10%;
+      }
+
+      #tc{
+        top: 30%;
+        right: 10%;
+      }
+
+      #sc{
+        left: 0;
+        bottom: 10%;
+        width: 100%;
+        text-align: center;
+      }
+
+      #cw{
+        bottom: 30%;
+        left: 10%;
+      }
+
+      #ac{
+        bottom: 30%;
+        right: 10%;
+      }
+
+      h1{
+        position: absolute;
+        font-size: 4vw;
         cursor: pointer;
         user-select: none;
         display: block;
-        background: url(text.jpg) repeat-y;
+        z-index: -1;
+        background: url(text3.jpg) repeat-y;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        animation: anim 40s linear infinite;
+
+        -webkit-text-fill-color: transparent;
+        animation: anim 30s linear infinite;
       }
+
       @keyframes anim {
         0% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
-      .container {
-        text-align: center;
-     }
       #box{
-        margin-left: 20%;
-        width: 60%;
+        position: fixed;
+        top: 47%;
+        margin-left: 15%;
+        width: 70%;
       }
-      label{
-        color: snow;
-        font-size: 2vw;
-        font-weight: 600;
-        text-shadow: 1px 1px 4px red;
-        margin: 0 0 30px 0;
-      }
-      #in{
+      
+      input, button{
         padding-left: 10px;
         outline: none;
-        border-radius: 10px;
-        width: 100%;
+        border: none;
+        
         height: 4vw;
         font-size: 2vw;
         animation: in 4s infinite;
+        background-color: rgba(255,255,255,0.7);
       }
+      input{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        width: 65%;
+      }
+      button{
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgba(66, 144, 245,0.8);
+        color: white;
+        width: 30%;
+      }
+      button:hover{
+        background-color: rgba(66,144,245,0.5);
+      }
+      button:focus{outline: none;}
+
       @keyframes in{
-        50%{box-shadow: 5px 5px 20px dodgerblue,-4px -4px 30px blue;}
+        50%{box-shadow: 5px 5px 15px dodgerblue,-4px -3px 20px blue;}
       }
 
       @media screen and (max-width: 600px) {
-        label {
-          display: none;
-        }
         h1{
-          font-size: 10vw;
+          font-size: 4.5vw;
         }
-        #in{height: 6vw;font-size: 3.8vw;}
+        input{height: 5vw;font-size: 3.8vw;}
+        button{height: 5vw;font-size: 3.5vw;}
       }
       @media screen and (max-width: 500px) {
         h1{
-          font-size: 12vw;
+          font-size: 6vw;
         }
-        
+
+        #lc, #cw {
+          left: 2%;
+        }
+        #tc, #ac{
+          right: 2%;
+        }
       }
       @media screen and (max-width: 400px) {
         #box{width: 70%;margin-left: 15%;}
-        #in{height: 8vw;}
+        input,button{height: 7vw;}
       }
     </style>
+
     <title>Letter Case</title>
   </head>
   <body>
-    <div>
-      <h1>.toUpperCase()</h1>
-      <div id="box" class="container">
-        <form>
-          <label for="text">Just enter the text and it will be capitalized!</label><br>
-          <input type="text" name="text" id="in" autofocus onkeyup="upper()" placeholder="eNtEr here tO CaPitALiZe!">
-        </form>
-      </div>
+    <img src="bg.jpg" usemap="#option">
+    
+
+    <div id="headings">
+      
+      <h1 id="uc">UPPER CASE</h1>
+      <h1 id="lc">lower case</h1>
+      <h1 id="tc">tOGGLE cASE</h1>
+      <h1 id="sc">Sentence case</h1>
+      <h1 id="cw">Capitalize Word</h1>
+      <h1 id="ac">aLtErNaTe cAsE</h1>
+
     </div>
+
+      <div id="box" class="container">
+
+        
+          <input type="text" name="text" id="in" autofocus onkeyup="upper()" placeholder="Convert Case!">
+          <button></button>
+          <!--
+          <input type="text" name="text" id="lc" autofocus onkeyup="lc()" placeholder="Convert Case!">
+          <input type="text" name="text" id="ac" autofocus onkeyup="ac()" placeholder="Convert Case!">
+          <input type="text" name="text" id="sc" autofocus onkeyup="sc()" placeholder="Convert Case!">
+          <input type="text" name="text" id="cw" autofocus onkeyup="cw()" placeholder="Convert Case!">
+          <input type="text" name="text" id="tc" autofocus onkeyup="tc()" placeholder="Convert Case!">-->
+        
+      </div>
+
     <script type="text/javascript">
-      function upper() {
-        var str=document.getElementById("in");
-        str.value=str.value.toUpperCase();
+
+      // media query event handler
+      if (matchMedia) {
+      const mq = window.matchMedia("(min-width: 600px)");
+      mq.addListener(WidthChange);
+      WidthChange(mq);
       }
+      // media query change
+      function WidthChange(mq) {
+        if (mq.matches) {
+          $("button").text("Copy to Clip");
+        } else {
+          $("button").text("Copy");
+        }
+      }
+      function upper() {
+        $("#in").val($("#in").val().toUpperCase());
+      }
+
+      $("button").click(function(){
+        var text = $("#in");
+            if($("#in").val() == ''){
+                alert("empty");
+            }else{
+                text.select();
+
+                try {
+                    var success = document.execCommand('copy');
+                    var msg = success? 'success' : 'unsuccess';
+                    alert('Text copied to clipboard');
+                } catch (err) {
+                    alert('Oops, unable to copy!');
+                }
+            }
+      });
     </script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+    
+    <!--jQuery first, then Popper.js, then Bootstrap JS
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
   </body>
 </html>
