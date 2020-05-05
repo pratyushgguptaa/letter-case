@@ -4,86 +4,76 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- Required font tags -->
+   <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style type="text/css">
-      
       img{
-        position: absolute;
+        position:absolute;
         z-index: -2;
         top:0; 
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
+      /* Styling Position of headings */
       #uc{
         left: 0;
         top: 10%;
         width: 100%;
         text-align: center;
       }
-
       #lc{
         top: 30%;
         left: 10%;
       }
-
       #tc{
         top: 30%;
         right: 10%;
       }
-
       #sc{
         left: 0;
         bottom: 10%;
         width: 100%;
         text-align: center;
       }
-
       #cw{
         bottom: 30%;
         left: 10%;
       }
-
       #ac{
         bottom: 30%;
         right: 10%;
       }
-
       h1{
+        font-family:'Fondamento', cursive;
+        color: snow;
         position: absolute;
         font-size: 4vw;
         cursor: pointer;
         user-select: none;
         display: block;
         z-index: -1;
-        background: url(text.jpg) repeat-y;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-
-        -webkit-text-fill-color: transparent;
-        animation: anim 30s linear infinite;
+        transition: all 0.3s;
+        text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey, 1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey, 5px 13px 15px black;
       }
-
-      @keyframes anim {
-        0% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+      h1:hover {
+        transform: scale(0.9);
+        text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey, 1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey, 1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
       }
+      /* For input and button */
       #box{
         position: fixed;
         top: 47%;
         margin-left: 15%;
         width: 70%;
       }
-      
       input, button{
         padding-left: 10px;
         outline: none;
         border: none;
-        
+        margin: 0px;
         height: 4vw;
         font-size: 2vw;
         animation: in 4s infinite;
@@ -139,35 +129,19 @@
   </head>
   <body>
     <img src="bg.jpg" usemap="#option">
-    
-
     <div id="headings">
-      
-      <h1 id="uc">UPPER CASE</h1>
-      <h1 id="lc">lower case</h1>
-      <h1 id="tc">tOGGLE cASE</h1>
-      <h1 id="sc">Sentence case</h1>
-      <h1 id="cw">Capitalize Word</h1>
-      <h1 id="ac">aLtErNaTe cAsE</h1>
-
+      <h1 id="uc" onclick="upper()">UPPER CASE</h1>
+      <h1 id="lc" onclick="lower()">lower case</h1>
+      <h1 id="tc" onclick="toggl()">tOGGLE cASE</h1>
+      <h1 id="sc" onclick="sentence()">Sentence case</h1>
+      <h1 id="cw" onclick="capitalize()">Capitalize Word</h1>
+      <h1 id="ac" onclick="alternate()">aLtErNaTe cAsE</h1>
     </div>
-
       <div id="box" class="container">
-
-        
-          <input type="text" name="text" id="in" autofocus onkeyup="upper()" placeholder="Convert Case!">
-          <button></button>
-          <!--
-          <input type="text" name="text" id="lc" autofocus onkeyup="lc()" placeholder="Convert Case!">
-          <input type="text" name="text" id="ac" autofocus onkeyup="ac()" placeholder="Convert Case!">
-          <input type="text" name="text" id="sc" autofocus onkeyup="sc()" placeholder="Convert Case!">
-          <input type="text" name="text" id="cw" autofocus onkeyup="cw()" placeholder="Convert Case!">
-          <input type="text" name="text" id="tc" autofocus onkeyup="tc()" placeholder="Convert Case!">-->
-        
+          <input type="text" name="text" id="in" autofocus placeholder="Convert Case!">
+          <button></button>        
       </div>
-
     <script type="text/javascript">
-
       // media query event handler
       if (matchMedia) {
       const mq = window.matchMedia("(min-width: 600px)");
@@ -182,17 +156,69 @@
           $("button").text("Copy");
         }
       }
+      
+      //all the 6 functions to do the specific operations 
       function upper() {
         $("#in").val($("#in").val().toUpperCase());
       }
-
+      function lower() {
+        $("#in").val($("#in").val().toLowerCase());
+      }
+      function toggl() {
+        var str=$("#in").val();
+        var str1='';
+        for (var i=0; i < str.length; i++) {
+            if(str.charAt(i)===str.charAt(i).toLowerCase()){
+            str1+=str.charAt(i).toUpperCase();
+            }
+            else if(str.charAt(i)===str.charAt(i).toUpperCase()){
+            str1+=str.charAt(i).toLowerCase();
+            }
+            else {
+              str1+=str.charAt(i);
+            }
+        }
+        $("#in").val(str1);
+      }
+      function capitalize() {
+        var str = $("#in").val().toLowerCase();
+        var str1 =str.charAt(0).toUpperCase();
+        for (var i = 1; i < str.length; i++) {
+          if(str.charAt(i-1)==" "){
+            str1+=str.charAt(i).toUpperCase();
+          } else {
+            str1+=str.charAt(i);
+          }
+        }
+        $("#in").val(str1);
+      }
+      function toSentenceCase(str) {
+        var str1 = str.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g,function(c){return c.toUpperCase()});
+        return str1;
+      }
+      function sentence() {
+        $("#in").val(toSentenceCase($("#in").val()));
+      }
+      function alternate(){
+        var str = $("#in").val();
+        var str1 = '';
+        for(var i=0;i<str.length;i++){
+          if(i%2==0){
+            str1+=str.charAt(i).toUpperCase();
+          }else{
+            str1+=str.charAt(i).toLowerCase();
+          }
+        }
+        $("#in").val(str1);
+      }
+      
+      // the copy button
       $("button").click(function(){
         var text = $("#in");
             if($("#in").val() == ''){
                 alert("empty");
             }else{
                 text.select();
-
                 try {
                     var success = document.execCommand('copy');
                     var msg = success? 'success' : 'unsuccess';
@@ -203,10 +229,5 @@
             }
       });
     </script>
-    
-    
-    <!--jQuery first, then Popper.js, then Bootstrap JS
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
   </body>
 </html>
