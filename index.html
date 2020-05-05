@@ -69,10 +69,10 @@
         text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey, 1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey, 5px 13px 15px black;
       }
 
-h1:hover {
-  transform: scale(0.9);
-  text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey, 1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey, 1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
-}
+      h1:hover {
+        transform: scale(0.9);
+        text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey, 1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey, 1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+      }
 
       #box{
         position: fixed;
@@ -132,7 +132,7 @@ h1:hover {
         }
       }
       @media screen and (max-width: 400px) {
-        #box{width: 70%;margin-left: 15%;}
+        #box{width: 80%;margin-left: 10%;}
         input,button{height: 7vw;}
       }
     </style>
@@ -155,6 +155,7 @@ h1:hover {
       </div>
 
     <script type="text/javascript">
+      alert("Enter text and just tap on the operation You want to perform.");
 
       // media query event handler
       if (matchMedia) {
@@ -226,8 +227,6 @@ h1:hover {
         }
         $("#in").val(str1);
       }
-
-
       $("button").click(function(){
         var text = $("#in");
             if($("#in").val() == ''){
@@ -244,28 +243,6 @@ h1:hover {
                 }
             }
       });
-      /*function cont(){
-        setTimeout(function(){
-            var wc = 0;
-            var count = 0;
-            count = $("#form_content").val();
-            $("#cc").empty();   //cc for character count(cc)
-            $("#cc").append(count.length);
-            if(count == 0){
-                $("#wc").empty();   //wc for word count(wc)
-                $("#wc").append(wc);
-            }else{
-                wc = count.trim().split(/\s+/).length;
-                $("#wc").empty();
-                $("#wc").append(wc);
-            }
-        }, 500);
-    }*/
     </script>
-    
-    
-    <!--jQuery first, then Popper.js, then Bootstrap JS
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
   </body>
 </html>
