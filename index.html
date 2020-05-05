@@ -4,11 +4,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Required font tags -->
+
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style type="text/css">
+      body {
+        
+      }
       img{pointer-events: none;
         position:absolute;
         z-index: -2;
@@ -17,35 +21,41 @@
         height: 100%;
         object-fit: cover;
       }
-      /* Styling Position of headings */
       #uc{
         left: 0;
         top: 10%;
         width: 100%;
         text-align: center;
+
       }
+
       #lc{
         top: 30%;
         left: 10%;
       }
+
       #tc{
         top: 30%;
         right: 10%;
       }
+
       #sc{
         left: 0;
         bottom: 10%;
         width: 100%;
         text-align: center;
       }
+
       #cw{
         bottom: 30%;
         left: 10%;
       }
+
       #ac{
         bottom: 30%;
         right: 10%;
       }
+
       h1{
         font-family:'Fondamento', cursive;
         color: snow;
@@ -58,17 +68,19 @@
         transition: all 0.3s;
         text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey, 1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey, 5px 13px 15px black;
       }
-      h1:hover {
-        transform: scale(0.9);
-        text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey, 1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey, 1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
-      }
-      /* For input and button */
+
+h1:hover {
+  transform: scale(0.9);
+  text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey, 1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey, 1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+}
+
       #box{
         position: fixed;
         top: 47%;
         margin-left: 15%;
         width: 70%;
       }
+      
       input, button{
         padding-left: 10px;
         outline: none;
@@ -141,13 +153,16 @@
           <input type="text" name="text" id="in" autofocus placeholder="Convert Case!">
           <button></button>        
       </div>
+
     <script type="text/javascript">
+
       // media query event handler
       if (matchMedia) {
       const mq = window.matchMedia("(min-width: 600px)");
       mq.addListener(WidthChange);
       WidthChange(mq);
       }
+
       // media query change
       function WidthChange(mq) {
         if (mq.matches) {
@@ -156,8 +171,8 @@
           $("button").text("Copy");
         }
       }
-      
-      //all the 6 functions to do the specific operations 
+
+
       function upper() {
         $("#in").val($("#in").val().toUpperCase());
       }
@@ -211,14 +226,15 @@
         }
         $("#in").val(str1);
       }
-      
-      // the copy button
+
+
       $("button").click(function(){
         var text = $("#in");
             if($("#in").val() == ''){
                 alert("empty");
             }else{
                 text.select();
+
                 try {
                     var success = document.execCommand('copy');
                     var msg = success? 'success' : 'unsuccess';
@@ -228,6 +244,28 @@
                 }
             }
       });
+      /*function cont(){
+        setTimeout(function(){
+            var wc = 0;
+            var count = 0;
+            count = $("#form_content").val();
+            $("#cc").empty();   //cc for character count(cc)
+            $("#cc").append(count.length);
+            if(count == 0){
+                $("#wc").empty();   //wc for word count(wc)
+                $("#wc").append(wc);
+            }else{
+                wc = count.trim().split(/\s+/).length;
+                $("#wc").empty();
+                $("#wc").append(wc);
+            }
+        }, 500);
+    }*/
     </script>
+    
+    
+    <!--jQuery first, then Popper.js, then Bootstrap JS
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
   </body>
 </html>
